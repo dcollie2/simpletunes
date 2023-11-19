@@ -4,6 +4,8 @@ class Track < ApplicationRecord
 
   validate :correct_audio_mime_type
 
+  acts_as_list
+
   private
 
   def correct_audio_mime_type

@@ -1,4 +1,6 @@
-<tr id="<%= dom_id track %>" data-id="<%= track.id %>">
+<tr id="<%= dom_id track %>" data-sortable-target="row" data-id="<%= track.id %>" draggable="true"
+  data-action="dragstart->sortable#dragstart dragover->sortable#dragover drop->sortable#drop">
+
   <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
     <%= track.title %>
   </th>

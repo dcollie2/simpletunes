@@ -27,7 +27,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem 'aws-sdk-s3'
-
+gem 'acts_as_list'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
