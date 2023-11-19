@@ -5,7 +5,7 @@
    <i class="fas fa-grip-vertical"></i> <%= track.title %>
   </th>
   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-    <%= humanize(track.audio.metadata[:duration]) if track.audio.present? && track.audio.metadata[:duration] %>
+    (<%= track.audio.content_type if track.audio.present? %>) <%= humanize(track.audio.metadata[:duration]) if track.audio.present? && track.audio.metadata[:duration] %>
   </td>
   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
     <%= track.notes %>
