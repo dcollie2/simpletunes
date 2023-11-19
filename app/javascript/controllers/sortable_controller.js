@@ -26,14 +26,12 @@ export default class extends Controller {
   drop(event) {
     event.preventDefault();
     const id = event.dataTransfer.getData('text');
-    console.log(id  + ' dropped');
     const element = this.element.querySelector(`[data-id="${id}"]`);
     if (element) {
       element.classList.remove('dragging');
-      // Send a request to the server to update the order of the tracks
-      // ...
+
       // Get the new position of the track
-      const newPosition = Array.from(this.element.children).indexOf(element);
+      const newPosition = Array.from(this.element.children).indexOf(element) + 1;
 
       // Send a request to the server to update the order of the tracks
       fetch(`/tracks/${id}/reorder`, {

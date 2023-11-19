@@ -2,7 +2,7 @@
   data-action="dragstart->sortable#dragstart dragover->sortable#dragover drop->sortable#drop">
 
   <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-    <%= track.title %>
+   <i class="fas fa-grip-vertical"></i> <%= track.title %>
   </th>
   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
     <%= humanize(track.audio.metadata[:duration]) if track.audio.present? && track.audio.metadata[:duration] %>
