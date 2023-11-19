@@ -64,7 +64,7 @@
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody data-controller="sortable">
               <% total_duration = 0%>
               <% @tracks.each do |track| %>
                 <% total_duration += track.audio.metadata[:duration] if track.audio.present? && track.audio.metadata[:duration] %>
@@ -86,7 +86,7 @@
   </div>
 
 <script>
-  var tracks = <%= @tracks.map { |track| [track.id, track.title, url_for(track.audio)] }.to_json.html_safe %>;
+  var tracks = <%= @tracks.map { |track| [track.id, track.title, url_for(track.audio)] if track.audio.present? }.to_json.html_safe %>;
   var player = document.getElementById('audioPlayer');
   var currentTrack = 0;
   var trackTitle = document.getElementById('track-title');

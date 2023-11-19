@@ -3,7 +3,7 @@ class TracksController < ApplicationController
 
   # GET /tracks or /tracks.json
   def index
-    @tracks = Track.all
+    @tracks = Track.all.order(position: :asc)
   end
 
   # GET /tracks/1 or /tracks/1.json
@@ -57,6 +57,13 @@ class TracksController < ApplicationController
     end
   end
 
+  def reorder
+    track = Track.find(params[:id])
+    track.update!(position: params[:position])
+
+    head :ok
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_track
@@ -65,6 +72,6 @@ class TracksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def track_params
-      params.require(:track).permit(:title, :notes, :audio)
+      params.require(:track).permit(:id, :title, :notes, :audio, :position)
     end
 end
