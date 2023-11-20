@@ -9,8 +9,8 @@ class Track < ApplicationRecord
   private
 
   def correct_audio_mime_type
-    if audio.attached? && !audio.content_type.in?(%w(audio/mpeg audio/wav))
-      errors.add(:audio, 'Must be a MP3 or WAV file')
+    if audio.attached? && !audio.content_type == 'audio/mpeg'
+      errors.add(:audio, 'Must be an MP3 file')
     end
   end
 
