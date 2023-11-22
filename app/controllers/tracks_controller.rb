@@ -53,7 +53,7 @@ class TracksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to tracks_url, notice: "Track was successfully destroyed." }
-      format.json { head :no_content }
+      format.json { render json: @tracks.map { |track| [track.id, track.title, url_for(track.audio)] if track.audio.attached? } }
     end
   end
 

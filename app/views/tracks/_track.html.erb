@@ -1,4 +1,4 @@
-<tr id="<%= dom_id track %>" data-sortable-target="row" data-id="<%= track.id %>" draggable="true"
+<tr data-player-target="track" data-audio-url="<%= url_for(track.audio) if track.audio.present? %>" data-title="<%= track.title %>" id="<%= dom_id track %>" data-sortable-target="row" data-id="<%= track.id %>" draggable="true"
   data-action="dragstart->sortable#dragstart dragover->sortable#dragover drop->sortable#drop">
   <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
    <i class="fas fa-grip-vertical"></i> <%= track.title %>
