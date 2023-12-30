@@ -11,5 +11,6 @@
   </td>
   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
     <%= link_to "<i class='fas fa-edit text-blue-500 mr-1'></i> Edit".html_safe, edit_track_path(track), class: "font-normal text-blue-500" %>
+    <%= button_to "<i class='fas fa-trash text-red-500 mr-1'></i> <span class='text-red-500'>Delete</span>".html_safe, track, method: :delete, data: { confirm: 'Are you sure?' }, class: "font-normal text-blue-500" %>
   </td>
 </tr>
