@@ -36,6 +36,5 @@ export default class extends Controller {
     const track = this.trackTargets[index];
     this.audioPlayerTarget.src = track.dataset.audioUrl;
     this.trackTitleTarget.innerHTML = track.dataset.title;
-    this.audioPlayerTarget.play();
   }
 }

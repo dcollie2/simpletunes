@@ -1,5 +1,6 @@
 class TracksController < ApplicationController
   before_action :set_track, only: %i[ show edit update destroy ]
+  http_basic_authenticate_with name: ENV['ADMIN_USERNAME'], password: ENV['ADMIN_PASSWORD'], except: :index
 
   # GET /tracks or /tracks.json
   def index
