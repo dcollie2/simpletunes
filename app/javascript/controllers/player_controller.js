@@ -5,7 +5,7 @@ export default class extends Controller {
 
   connect() {
     this.currentTrack = 0;
-    this.playTrack(this.currentTrack);
+    this.playTrack(this.currentTrack, false);
 
     this.audioPlayerTarget.addEventListener('ended', () => {
       this.currentTrack++;
@@ -32,9 +32,12 @@ export default class extends Controller {
     this.playTrack(this.currentTrack);
   }
 
-  playTrack(index) {
+  playTrack(index, autoplay=true) {
     const track = this.trackTargets[index];
     this.audioPlayerTarget.src = track.dataset.audioUrl;
     this.trackTitleTarget.innerHTML = track.dataset.title;
+    if (autoplay) {
+      this.audioPlayerTarget.play();
+    }
   }
 }
